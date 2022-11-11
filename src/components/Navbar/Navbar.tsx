@@ -1,15 +1,10 @@
-import {
-  Box, Flex,
-  Image,
-  Stack,
-  useBreakpointValue
-} from "@chakra-ui/react";
+import { Box, Flex, Image, Stack, useBreakpointValue } from "@chakra-ui/react";
 import { DarkModeSwitch } from "./DarkModeSwitch";
 import { DesktopMenu } from "./DesktopMenu";
 import { MobileMenu } from "./MobileMenu";
 import { UserMenu } from "./UserMenu";
 
-export default function Nav() {
+export const Nav = () => {
   const isMobile = useBreakpointValue({ base: true, md: false });
 
   return (
@@ -51,4 +46,4 @@ export default function Nav() {
       </Flex>
     </Box>
   );
-}
+};

@@ -3,29 +3,19 @@ import {
   Image,
   Stack,
   Text,
-  useColorModeValue,
+  useColorModeValue
 } from "@chakra-ui/react";
-
-const ResponsiveValues = (base, md) => {
-  return {
-    base: base,
-    md: md,
-  };
-};
+import { ResponsiveValues } from "../../utils/responsive";
 
 export const Home = () => (
   <Stack
-    id="home"
     minH="100vh"
     alignItems="center"
     justifyContent="center"
     verticalAlign="middle"
     direction={ResponsiveValues("column", "row")}
   >
-    <Center
-      h="100%"
-      w="50%"
-    >
+    <Center h="100%" w="50%">
       <Text
         fontWeight="bold"
         fontSize="4xl"
@@ -41,7 +31,7 @@ export const Home = () => (
       paddingRight={ResponsiveValues("", "10vw")}
       justifyContent="center"
     >
-      <Image src="/images/home.svg" alt="Image"/>
+      <Image src="/images/home.svg" alt="Image" />
     </Center>
   </Stack>
 );
