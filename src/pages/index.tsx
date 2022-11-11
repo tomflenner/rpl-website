@@ -1,7 +1,7 @@
 import { Center, Container, Divider } from "@chakra-ui/react";
 import { Home } from "../components/Home/Home";
 import { Nav } from "../components/Navbar/Navbar";
-import { ServersInfo } from "../components/Servers/Servers";
+import { ServersInfos } from "../components/Servers/Servers";
 
 const Index = () => (
   <Container maxW="conainter.lg">
@@ -12,7 +12,7 @@ const Index = () => (
       <Divider w="75vw" />
     </Center>
 
-    <ServersInfo />
+    <ServersInfos />
 
     <Center>
       <Divider w="75vw" />
