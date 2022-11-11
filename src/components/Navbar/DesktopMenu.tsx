@@ -14,7 +14,7 @@ const NavLink = ({ onClick, children }: NavLinkProps) => (
     textTransform="uppercase"
     _hover={{
       textDecoration: "none",
-      color: useColorModeValue("orange", "yellow"),
+      color: "orange",
     }}
     href="#"
     onClick={onClick}

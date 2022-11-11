@@ -19,7 +19,7 @@ const Info = ({ icon, title, description }: InfoProps) => {
   return (
     <VStack
     h="100%">
-      <Icon as={icon} color={useColorModeValue("orange", "yellow")} boxSize="12"/>
+      <Icon as={icon} color="orange" boxSize="12"/>
       <Heading size="md">{title}</Heading>
       <Text textAlign="center" fontSize="sm" w="50%">
         {description}

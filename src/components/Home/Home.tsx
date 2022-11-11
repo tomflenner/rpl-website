@@ -19,7 +19,7 @@ export const Home = () => (
       <Text
         fontWeight="bold"
         fontSize="4xl"
-        color={useColorModeValue("orange", "yellow")}
+        color="orange"
         textAlign="center"
       >
         RETAKE PRO LEAGUE
