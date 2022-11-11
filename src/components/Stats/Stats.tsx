@@ -52,7 +52,7 @@ export const TopTenTable = () => {
 
 export const Stats = () => {
   return (
-    <VStack id="stats" marginTop="10">
+    <VStack id="stats" marginTop="10" marginBottom="10">
       <Heading color="orange" marginBottom="10">Statistiques</Heading>
       <Stack
         w="100%"

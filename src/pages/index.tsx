@@ -20,6 +20,10 @@ const Index = () => (
     </Center>
 
     <Stats />
+
+    <Center>
+      <Divider w="75vw" />
+    </Center>
   </Container>
 );
 
