@@ -1,9 +1,7 @@
 import {
-  Center,
-  Image,
+  Center, Image,
   Stack,
-  Text,
-  useColorModeValue
+  Text
 } from "@chakra-ui/react";
 import { ResponsiveValues } from "../../utils/responsive";
 
@@ -16,12 +14,7 @@ export const Home = () => (
     direction={ResponsiveValues("column", "row")}
   >
     <Center h="100%" w="50%">
-      <Text
-        fontWeight="bold"
-        fontSize="4xl"
-        color="orange"
-        textAlign="center"
-      >
+      <Text fontWeight="bold" fontSize="4xl" color="orange" textAlign="center">
         RETAKE PRO LEAGUE
       </Text>
     </Center>

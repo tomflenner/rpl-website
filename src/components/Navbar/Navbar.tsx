@@ -1,4 +1,9 @@
-import { Box, Flex, Image, Stack, useBreakpointValue } from "@chakra-ui/react";
+import {
+  Box, Flex,
+  Image,
+  Stack,
+  useBreakpointValue
+} from "@chakra-ui/react";
 import { DarkModeSwitch } from "./DarkModeSwitch";
 import { DesktopMenu } from "./DesktopMenu";
 import { MobileMenu } from "./MobileMenu";

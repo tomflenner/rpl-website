@@ -10,7 +10,7 @@ import {
   Th,
   Thead,
   Tr,
-  VStack,
+  VStack
 } from "@chakra-ui/react";
 import { ResponsiveValues } from "../../utils/responsive";
 
@@ -53,7 +53,9 @@ export const TopTenTable = () => {
 export const Stats = () => {
   return (
     <VStack id="stats" marginTop="10" marginBottom="10">
-      <Heading color="orange" marginBottom="10">Statistiques</Heading>
+      <Heading color="orange" marginBottom="10">
+        Statistiques
+      </Heading>
       <Stack
         w="100%"
         alignItems="center"

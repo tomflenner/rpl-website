@@ -1,11 +1,9 @@
 import { Icon } from "@chakra-ui/icons";
 import {
-  Box,
-  Container,
-  Flex,
+  Box, Flex,
   Stack,
   Text,
-  useColorModeValue,
+  useColorModeValue
 } from "@chakra-ui/react";
 import { ReactNode } from "react";
 
@@ -99,7 +97,6 @@ const DiscordIcon = () => {
 export const Footer = () => {
   return (
     <Box w="100%" h="10vh" bgColor={useColorModeValue("#EEF1F6", "#262B36")}>
-      <Container maxW="container.lg">
         <Flex alignItems="center" justify="flex-start" flex="1">
           <Stack direction="row" alignItems="center" spacing="0">
             <RplIcon />
@@ -114,7 +111,6 @@ export const Footer = () => {
             <DiscordIcon />
           </Stack>
         </Flex>
-      </Container>
     </Box>
   );
 };

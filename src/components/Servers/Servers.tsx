@@ -4,8 +4,7 @@ import {
   Icon,
   Stack,
   Text,
-  useColorModeValue,
-  VStack,
+  VStack
 } from "@chakra-ui/react";
 import { ResponsiveValues } from "../../utils/responsive";
 
@@ -17,9 +16,8 @@ type InfoProps = {
 
 const Info = ({ icon, title, description }: InfoProps) => {
   return (
-    <VStack
-    h="100%">
-      <Icon as={icon} color="orange" boxSize="12"/>
+    <VStack h="100%">
+      <Icon as={icon} color="orange" boxSize="12" />
       <Heading size="md">{title}</Heading>
       <Text textAlign="center" fontSize="sm" w="50%">
         {description}
