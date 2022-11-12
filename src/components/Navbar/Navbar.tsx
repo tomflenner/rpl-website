@@ -10,6 +10,7 @@ const scroller = Scroll.scroller;
 
 export type NavMenuProps = {
   scrollToId: (id: string) => void;
+  user?: any;
 };
 
 export const Navbar = ({ user }) => {
@@ -49,7 +50,7 @@ export const Navbar = ({ user }) => {
     >
       {isMobile ? (
         <>
-          <MobileMenu scrollToId={scrollToId} />
+          <MobileMenu scrollToId={scrollToId} user={user} />
 
           <Image
             h="5vh"
@@ -72,7 +73,7 @@ export const Navbar = ({ user }) => {
             <DesktopMenu scrollToId={scrollToId} />
             <DarkModeSwitch />
             {user ? (
-              <UserMenu />
+              <UserMenu user={user} />
             ) : (
               <Link href="/api/auth/login">
                 <Image

@@ -10,7 +10,7 @@ import {
 import { NavMenuProps } from "./Navbar";
 import { UserMenuContent } from "./UserMenu";
 
-export const MobileMenu: React.FC<NavMenuProps> = ({ scrollToId }) => {
+export const MobileMenu: React.FC<NavMenuProps> = ({ scrollToId, user }) => {
   return (
     <Menu>
       <MenuButton
@@ -43,7 +43,7 @@ export const MobileMenu: React.FC<NavMenuProps> = ({ scrollToId }) => {
         </MenuItem>
         <MenuItem onClick={() => {}}>Contact</MenuItem>
         <MenuDivider />
-        <UserMenuContent />
+        <UserMenuContent user={user} />
       </MenuList>
     </Menu>
   );

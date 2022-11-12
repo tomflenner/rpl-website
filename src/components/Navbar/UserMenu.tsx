@@ -11,18 +11,20 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 
-function UserInfos() {
+type UserInfosProps = {
+  displayName: string;
+  photos: any;
+};
+
+const UserInfos: React.FC<UserInfosProps> = ({ displayName, photos }) => {
   const isMobile = useBreakpointValue({ base: true, md: false });
   return (
     <>
       {isMobile ? (
         <>
           <MenuItem>
-            <Avatar
-              size="sm"
-              src="https://avatars.dicebear.com/api/male/username.svg"
-            />
-            <p>Username</p>
+            <Avatar size="sm" src={photos[0].value} />
+            <p>{displayName}</p>
           </MenuItem>
         </>
       ) : (
@@ -30,26 +32,27 @@ function UserInfos() {
           {" "}
           <br />
           <Center>
-            <Avatar
-              size="2xl"
-              src="https://avatars.dicebear.com/api/male/username.svg"
-            />
+            <Avatar size="2xl" src={photos[2].value} />
           </Center>
           <br />
           <Center>
-            <p>Username</p>
+            <p>{displayName}</p>
           </Center>
           <br />
         </>
       )}
     </>
   );
-}
+};
 
-export function UserMenuContent() {
+type UserMenuProps = {
+  user: UserInfosProps;
+};
+
+export const UserMenuContent: React.FC<UserMenuProps> = ({ user }) => {
   return (
     <>
-      <UserInfos />
+      <UserInfos displayName={user.displayName} photos={user.photos} />
       <MenuDivider />
       <MenuItem>Mes statistiques</MenuItem>
       <MenuItem>Mes skins</MenuItem>
@@ -57,9 +60,9 @@ export function UserMenuContent() {
       <MenuItem>Se déconnecter</MenuItem>
     </>
   );
-}
+};
 
-export function UserMenu() {
+export const UserMenu: React.FC<UserMenuProps> = ({ user }) => {
   return (
     <Menu>
       <MenuButton
@@ -69,14 +72,11 @@ export function UserMenu() {
         rounded="full"
         minW="0"
       >
-        <Avatar
-          size="sm"
-          src="https://avatars.dicebear.com/api/male/username.svg"
-        />
+        <Avatar size="sm" src={user.photos[1].value} />
       </MenuButton>
       <MenuList alignItems="center">
-        <UserMenuContent />
+        <UserMenuContent user={user} />
       </MenuList>
     </Menu>
   );
-}
+};

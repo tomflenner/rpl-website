@@ -10,6 +10,5 @@ const path = "/api/auth/return";
 export default router
   .use(path, passport.authenticate("steam", { failureRedirect: "/" }))
   .get(path, (_, res: AuthReturnResponse) => {
-    console.log("return");
     res.redirect("/");
   });
