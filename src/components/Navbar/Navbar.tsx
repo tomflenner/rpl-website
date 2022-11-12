@@ -4,7 +4,7 @@ import { DesktopMenu } from "./DesktopMenu";
 import { MobileMenu } from "./MobileMenu";
 import { UserMenu } from "./UserMenu";
 
-export const Nav = () => {
+export const Navbar = () => {
   const isMobile = useBreakpointValue({ base: true, md: false });
 
   return (

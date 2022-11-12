@@ -1,13 +1,13 @@
 import { Center, Container, Divider } from "@chakra-ui/react";
+import { Footer } from "../components/Footer/Footer";
 import { Home } from "../components/Home/Home";
-import { Nav } from "../components/Navbar/Navbar";
+import { Navbar } from "../components/Navbar/Navbar";
 import { Rules } from "../components/Rules/Rules";
 import { ServersInfos } from "../components/Servers/Servers";
 import { Stats } from "../components/Stats/Stats";
 
 const Index = () => (
   <Container maxW="conainter.lg">
-    <Nav />
     <Home />
 
     <Center>
