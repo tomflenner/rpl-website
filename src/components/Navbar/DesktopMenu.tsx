@@ -1,5 +1,6 @@
 import { Link, Stack, useColorModeValue } from "@chakra-ui/react";
 import { ReactNode } from "react";
+import { NavMenuProps } from "./Navbar";
 
 type NavLinkProps = {
   children: ReactNode;
@@ -23,12 +24,30 @@ const NavLink = ({ onClick, children }: NavLinkProps) => (
   </Link>
 );
 
-export const DesktopMenu: React.FC = () => {
+export const DesktopMenu: React.FC<NavMenuProps> = ({ scrollToId }) => {
   return (
     <Stack direction="row" fontSize="xl">
-      <NavLink onClick={() => {}}>Accueil</NavLink>
-      <NavLink onClick={() => {}}>Serveurs</NavLink>
-      <NavLink onClick={() => {}}>Stats</NavLink>
+      <NavLink
+        onClick={() => {
+          scrollToId("home");
+        }}
+      >
+        Accueil
+      </NavLink>
+      <NavLink
+        onClick={() => {
+          scrollToId("serversInfo");
+        }}
+      >
+        Serveurs
+      </NavLink>
+      <NavLink
+        onClick={() => {
+          scrollToId("stats");
+        }}
+      >
+        Stats
+      </NavLink>
       <NavLink onClick={() => {}}>Contact</NavLink>
     </Stack>
   );

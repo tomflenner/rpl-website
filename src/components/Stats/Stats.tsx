@@ -10,7 +10,7 @@ import {
   Th,
   Thead,
   Tr,
-  VStack
+  VStack,
 } from "@chakra-ui/react";
 import { ResponsiveValues } from "../../utils/responsive";
 

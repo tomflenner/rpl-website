@@ -7,9 +7,10 @@ import {
   MenuItem,
   MenuList,
 } from "@chakra-ui/react";
+import { NavMenuProps } from "./Navbar";
 import { UserMenuContent } from "./UserMenu";
 
-export const MobileMenu: React.FC = () => {
+export const MobileMenu: React.FC<NavMenuProps> = ({ scrollToId }) => {
   return (
     <Menu>
       <MenuButton
@@ -19,9 +20,27 @@ export const MobileMenu: React.FC = () => {
         variant="outline"
       />
       <MenuList>
-        <MenuItem onClick={() => {}}>Accueil</MenuItem>
-        <MenuItem onClick={() => {}}>Serveurs</MenuItem>
-        <MenuItem onClick={() => {}}>Stats</MenuItem>
+        <MenuItem
+          onClick={() => {
+            scrollToId("home");
+          }}
+        >
+          Accueil
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            scrollToId("serversInfo");
+          }}
+        >
+          Serveurs
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            scrollToId("sats");
+          }}
+        >
+          Stats
+        </MenuItem>
         <MenuItem onClick={() => {}}>Contact</MenuItem>
         <MenuDivider />
         <UserMenuContent />

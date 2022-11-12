@@ -1,12 +1,9 @@
-import {
-  Center, Image,
-  Stack,
-  Text
-} from "@chakra-ui/react";
+import { Center, Image, Stack, Text } from "@chakra-ui/react";
 import { ResponsiveValues } from "../../utils/responsive";
 
 export const Home = () => (
   <Stack
+    id="home"
     minH="100vh"
     alignItems="center"
     justifyContent="center"

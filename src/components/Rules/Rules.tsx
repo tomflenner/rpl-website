@@ -3,7 +3,7 @@ import { RuleElement } from "./RuleElement";
 
 export const Rules = () => {
   return (
-    <Box textAlign="center" margin="10">
+    <Box textAlign="center" margin="10" id="rules">
       <Heading color="orange">Règles</Heading>
       <VStack margin="10">
         <RuleElement
