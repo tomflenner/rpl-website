@@ -1,18 +1,18 @@
-import { Box, Flex, Image, Stack, useBreakpointValue } from "@chakra-ui/react";
+import { Flex, Image, Link, Stack, useBreakpointValue } from "@chakra-ui/react";
+import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import { useCallback, useState } from "react";
+import Scroll from "react-scroll";
 import { DarkModeSwitch } from "./DarkModeSwitch";
 import { DesktopMenu } from "./DesktopMenu";
 import { MobileMenu } from "./MobileMenu";
 import { UserMenu } from "./UserMenu";
-import Scroll from "react-scroll";
-import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 const scroller = Scroll.scroller;
 
 export type NavMenuProps = {
   scrollToId: (id: string) => void;
 };
 
-export const Navbar = () => {
+export const Navbar = ({ user }) => {
   const isMobile = useBreakpointValue({ base: true, md: false });
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -71,7 +71,18 @@ export const Navbar = () => {
           <Stack direction="row" spacing="5" alignItems="center">
             <DesktopMenu scrollToId={scrollToId} />
             <DarkModeSwitch />
-            <UserMenu />
+            {user ? (
+              <UserMenu />
+            ) : (
+              <Link href="/api/auth/login">
+                <Image
+                  h="5vh"
+                  src="/images/steam.png"
+                  alt="Se connecter avec Steam"
+                  cursor="pointer"
+                />
+              </Link>
+            )}
           </Stack>
         </>
       )}
