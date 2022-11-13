@@ -1,7 +1,8 @@
-import { Flex, Image, Link, Stack, useBreakpointValue } from "@chakra-ui/react";
+import { Box, Flex, Image, Link, Stack } from "@chakra-ui/react";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import { useCallback, useState } from "react";
 import Scroll from "react-scroll";
+import { ResponsiveValues } from "../../utils/responsive";
 import { DarkModeSwitch } from "./DarkModeSwitch";
 import { DesktopMenu } from "./DesktopMenu";
 import { MobileMenu } from "./MobileMenu";
@@ -18,8 +19,6 @@ export type NavbarProps = {
 };
 
 export const Navbar: React.FC<NavbarProps> = ({ user }) => {
-  const isMobile = useBreakpointValue({ base: true, md: false });
-
   const [isScrolled, setIsScrolled] = useState(false);
   useScrollPosition(
     ({ currPos }) => {
@@ -29,7 +28,7 @@ export const Navbar: React.FC<NavbarProps> = ({ user }) => {
         setIsScrolled(false);
       }
     },
-    [isMobile],
+    [],
     undefined,
     false,
     33
@@ -52,45 +51,40 @@ export const Navbar: React.FC<NavbarProps> = ({ user }) => {
       zIndex="overlay"
       boxShadow={isScrolled ? "md" : undefined}
     >
-      {isMobile ? (
-        <>
-          <MobileMenu scrollToId={scrollToId} user={user} />
+      <Image
+        h="5vh"
+        src="/images/rpl_color_logo.png"
+        alt="RPL"
+        cursor="pointer"
+        order={ResponsiveValues(2, 1)}
+      />
 
-          <Image
-            h="5vh"
-            src="/images/rpl_color_logo.png"
-            alt="RPL"
-            cursor="pointer"
-          />
+      <Box order="1" display={ResponsiveValues("flex", "none")}>
+        <MobileMenu scrollToId={scrollToId} user={user} />
+      </Box>
 
-          <DarkModeSwitch />
-        </>
-      ) : (
-        <>
-          <Image
-            h="5vh"
-            src="/images/rpl_color_logo.png"
-            alt="RPL"
-            cursor="pointer"
-          />
-          <Stack direction="row" spacing="5" alignItems="center">
-            <DesktopMenu scrollToId={scrollToId} />
-            <DarkModeSwitch />
-            {user ? (
-              <UserMenu user={user} />
-            ) : (
-              <Link href="/api/auth/login">
-                <Image
-                  h="5vh"
-                  src="/images/steam.png"
-                  alt="Se connecter avec Steam"
-                  cursor="pointer"
-                />
-              </Link>
-            )}
-          </Stack>
-        </>
-      )}
+      <Stack direction="row" spacing="5" alignItems="center" order="3">
+        <Box display={ResponsiveValues("none", "flex")}>
+          <DesktopMenu scrollToId={scrollToId} />
+        </Box>
+
+        <DarkModeSwitch />
+
+        <Box id="panda" display={ResponsiveValues("none", "flex")}>
+          {user ? (
+            <UserMenu user={user} />
+          ) : (
+            <Link href="/api/auth/login">
+              <Image
+                h="5vh"
+                src="/images/steam.png"
+                alt="Se connecter avec Steam"
+                cursor="pointer"
+              />
+            </Link>
+          )}
+        </Box>
+      </Stack>
     </Flex>
   );
 };

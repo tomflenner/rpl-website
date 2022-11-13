@@ -1,5 +1,6 @@
 import {
   Avatar,
+  Box,
   Button,
   Center,
   Link,
@@ -8,8 +9,8 @@ import {
   MenuDivider,
   MenuItem,
   MenuList,
-  useBreakpointValue,
 } from "@chakra-ui/react";
+import { ResponsiveValues } from "../../utils/responsive";
 
 type UserInfosProps = {
   displayName: string;
@@ -17,30 +18,26 @@ type UserInfosProps = {
 };
 
 const UserInfos: React.FC<UserInfosProps> = ({ displayName, photos }) => {
-  const isMobile = useBreakpointValue({ base: true, md: false });
-
   return (
     <>
-      {isMobile ? (
-        <>
-          <MenuItem>
-            <Avatar size="sm" src={photos[0].value} />
-            <p>{displayName}</p>
-          </MenuItem>
-        </>
-      ) : (
-        <>
-          <br />
-          <Center>
-            <Avatar size="2xl" src={photos[2].value} />
-          </Center>
-          <br />
-          <Center>
-            <p>{displayName}</p>
-          </Center>
-          <br />
-        </>
-      )}
+      <Box display={ResponsiveValues("flex", "none")}>
+        <MenuItem>
+          <Avatar size="sm" src={photos[0].value} />
+          <p>{displayName}</p>
+        </MenuItem>
+      </Box>
+
+      <Box display={ResponsiveValues("none", "block")}>
+        <br />
+        <Center>
+          <Avatar size="2xl" src={photos[2].value} />
+        </Center>
+        <br />
+        <Center>
+          <p>{displayName}</p>
+        </Center>
+        <br />
+      </Box>
     </>
   );
 };
