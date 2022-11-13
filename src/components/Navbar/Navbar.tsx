@@ -1,6 +1,6 @@
 import {
   Box,
-  Collapse,
+  Fade,
   Flex,
   Image,
   Link,
@@ -54,40 +54,39 @@ export const Navbar: React.FC<NavbarProps> = ({ user, ready }) => {
   }, [ready]);
 
   return (
-    <Collapse in={isOpen} animateOpacity>
-      <Flex
-        id="navbar"
-        backdropFilter="auto"
-        backdropBlur="6px"
-        w="100%"
-        position="fixed"
-        h="16"
-        maxH="16"
-        alignItems="center"
-        justifyContent="space-between"
-        zIndex="overlay"
-        boxShadow={isScrolled ? "md" : undefined}
-      >
-        <Image
-          h="5vh"
-          src="/images/rpl_color_logo.png"
-          alt="RPL"
-          cursor="pointer"
-          order={ResponsiveValues(2, 1)}
-        />
+    <Flex
+      id="navbar"
+      backdropFilter="auto"
+      backdropBlur="6px"
+      w="100%"
+      position="fixed"
+      h="16"
+      maxH="16"
+      alignItems="center"
+      justifyContent="space-between"
+      zIndex="overlay"
+      boxShadow={isScrolled ? "md" : undefined}
+    >
+      <Image
+        h="5vh"
+        src="/images/rpl_color_logo.png"
+        alt="RPL"
+        cursor="pointer"
+        order={ResponsiveValues(2, 1)}
+      />
 
-        <Box order="1" display={ResponsiveValues("flex", "none")}>
-          <MobileMenu scrollToId={scrollToId} user={user} />
+      <Box order="1" display={ResponsiveValues("flex", "none")}>
+        <MobileMenu scrollToId={scrollToId} user={user} />
+      </Box>
+
+      <Stack direction="row" spacing="5" alignItems="center" order="3">
+        <Box display={ResponsiveValues("none", "flex")}>
+          <DesktopMenu scrollToId={scrollToId} />
         </Box>
 
-        <Stack direction="row" spacing="5" alignItems="center" order="3">
-          <Box display={ResponsiveValues("none", "flex")}>
-            <DesktopMenu scrollToId={scrollToId} />
-          </Box>
-
-          <DarkModeSwitch />
-
-          <Box id="panda" display={ResponsiveValues("none", "flex")}>
+        <DarkModeSwitch />
+        <Box display={ResponsiveValues("none", "flex")}>
+          <Fade in={isOpen}>
             {user ? (
               <UserMenu user={user} />
             ) : (
@@ -100,9 +99,9 @@ export const Navbar: React.FC<NavbarProps> = ({ user, ready }) => {
                 />
               </Link>
             )}
-          </Box>
-        </Stack>
-      </Flex>
-    </Collapse>
+          </Fade>
+        </Box>
+      </Stack>
+    </Flex>
   );
 };
