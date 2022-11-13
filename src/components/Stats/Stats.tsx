@@ -12,13 +12,35 @@ import {
   Tr,
   VStack,
 } from "@chakra-ui/react";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Player } from "../../types/Player";
+import { getPlayers } from "../../utils/players/getPlayers";
+import { getTop } from "../../utils/players/getTop";
 import { ResponsiveValues } from "../../utils/responsive";
 
-export const TopTenTable: React.FC = () => {
+enum TopTenType {
+  HS = "hs",
+  KD = "kd",
+  RANK = "rank",
+}
+
+type TopTenTableProps = {
+  title: string;
+  type: TopTenType;
+};
+
+export const TopTenTable: React.FC<TopTenTableProps> = ({ title, type }) => {
+  const [players, setPlayers] = useState<Player[]>([]);
+
+  useEffect(() => {
+    getTop(type, 3).then(setPlayers);
+  }, []);
+
   return (
     <TableContainer>
       <Table variant="simple">
-        <TableCaption placement="top">Classement Top 10</TableCaption>
+        <TableCaption placement="top">Classement Top 3 - {title}</TableCaption>
         <Thead>
           <Tr>
             <Th>N°</Th>
@@ -26,18 +48,14 @@ export const TopTenTable: React.FC = () => {
           </Tr>
         </Thead>
         <Tbody>
-          <Tr>
-            <Td>1</Td>
-            <Td>skyz</Td>
-          </Tr>
-          <Tr>
-            <Td>2</Td>
-            <Td>Radia</Td>
-          </Tr>
-          <Tr>
-            <Td>3</Td>
-            <Td>Scaffus</Td>
-          </Tr>
+          {players.map((p, i) => {
+            return (
+              <Tr>
+                <Td>{i + 1}</Td>
+                <Td>{p.name}</Td>
+              </Tr>
+            );
+          })}
         </Tbody>
         <Tfoot>
           <Tr>
@@ -62,9 +80,9 @@ export const Stats: React.FC = () => {
         justifyContent="space-evenly"
         direction={ResponsiveValues("column", "row")}
       >
-        <TopTenTable />
-        <TopTenTable />
-        <TopTenTable />
+        <TopTenTable title="Rang" type={TopTenType.RANK} />
+        <TopTenTable title="Headshot" type={TopTenType.HS} />
+        <TopTenTable title="KD" type={TopTenType.KD} />
       </Stack>
     </VStack>
   );
