@@ -24,9 +24,10 @@ export type NavMenuProps = {
 
 export type NavbarProps = {
   user: any;
+  ready: boolean;
 };
 
-export const Navbar: React.FC<NavbarProps> = ({ user }) => {
+export const Navbar: React.FC<NavbarProps> = ({ user, ready }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   useScrollPosition(
     ({ currPos }) => {
@@ -49,8 +50,8 @@ export const Navbar: React.FC<NavbarProps> = ({ user }) => {
   const { isOpen, onToggle } = useDisclosure();
 
   useEffect(() => {
-    onToggle();
-  }, []);
+    if (ready) onToggle();
+  }, [ready]);
 
   return (
     <Collapse in={isOpen} animateOpacity>

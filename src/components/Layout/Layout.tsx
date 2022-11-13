@@ -13,7 +13,7 @@ export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
 
   return (
     <>
-      <Navbar user={data?.passport?.user} />
+      <Navbar user={data?.passport?.user} ready={!error && !data} />
       <main>{children}</main>
       <Footer />
     </>
