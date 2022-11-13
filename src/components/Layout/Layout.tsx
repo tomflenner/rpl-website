@@ -1,4 +1,3 @@
-import { useDisclosure } from "@chakra-ui/react";
 import { PropsWithChildren } from "react";
 import useSWR from "swr";
 import { Footer } from "../Footer/Footer";
