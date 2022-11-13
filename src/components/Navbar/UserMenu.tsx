@@ -2,12 +2,12 @@ import {
   Avatar,
   Button,
   Center,
+  Link,
   Menu,
   MenuButton,
   MenuDivider,
   MenuItem,
   MenuList,
-  Stack,
   useBreakpointValue,
 } from "@chakra-ui/react";
 
@@ -18,6 +18,7 @@ type UserInfosProps = {
 
 const UserInfos: React.FC<UserInfosProps> = ({ displayName, photos }) => {
   const isMobile = useBreakpointValue({ base: true, md: false });
+
   return (
     <>
       {isMobile ? (
@@ -29,7 +30,6 @@ const UserInfos: React.FC<UserInfosProps> = ({ displayName, photos }) => {
         </>
       ) : (
         <>
-          {" "}
           <br />
           <Center>
             <Avatar size="2xl" src={photos[2].value} />
@@ -57,7 +57,9 @@ export const UserMenuContent: React.FC<UserMenuProps> = ({ user }) => {
       <MenuItem>Mes statistiques</MenuItem>
       <MenuItem>Mes skins</MenuItem>
       <MenuDivider />
-      <MenuItem>Se déconnecter</MenuItem>
+      <MenuItem>
+        <Link href="/api/auth/logout">Se déconnecter</Link>
+      </MenuItem>
     </>
   );
 };

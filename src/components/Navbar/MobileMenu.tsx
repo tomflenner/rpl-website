@@ -1,6 +1,8 @@
 import { HamburgerIcon } from "@chakra-ui/icons";
 import {
   IconButton,
+  Image,
+  Link,
   Menu,
   MenuButton,
   MenuDivider,
@@ -43,7 +45,22 @@ export const MobileMenu: React.FC<NavMenuProps> = ({ scrollToId, user }) => {
         </MenuItem>
         <MenuItem onClick={() => {}}>Contact</MenuItem>
         <MenuDivider />
-        <UserMenuContent user={user} />
+        {user ? (
+          <>
+            <UserMenuContent user={user} />
+          </>
+        ) : (
+          <MenuItem justifyContent="center">
+            <Link href="/api/auth/login">
+              <Image
+                h="4vh"
+                src="/images/steam_mobile.png"
+                alt="Se connecter avec Steam"
+                cursor="pointer"
+              />
+            </Link>
+          </MenuItem>
+        )}
       </MenuList>
     </Menu>
   );
