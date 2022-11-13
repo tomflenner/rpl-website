@@ -85,8 +85,8 @@ export const Navbar: React.FC<NavbarProps> = ({ user, ready }) => {
         </Box>
 
         <DarkModeSwitch />
-        <Box display={ResponsiveValues("none", "flex")}>
-          <Fade in={isOpen}>
+        <Fade in={isOpen}>
+          <Box display={ResponsiveValues("none", "flex")}>
             {user ? (
               <UserMenu user={user} />
             ) : (
@@ -99,8 +99,8 @@ export const Navbar: React.FC<NavbarProps> = ({ user, ready }) => {
                 />
               </Link>
             )}
-          </Fade>
-        </Box>
+          </Box>
+        </Fade>
       </Stack>
     </Flex>
   );
