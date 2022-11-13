@@ -1,10 +1,5 @@
 import { Icon } from "@chakra-ui/icons";
-import {
-  Box, Flex,
-  Stack,
-  Text,
-  useColorModeValue
-} from "@chakra-ui/react";
+import { Box, Flex, Stack, Text, useColorModeValue } from "@chakra-ui/react";
 import { ReactNode } from "react";
 
 type FooterIconProps = {
@@ -12,7 +7,7 @@ type FooterIconProps = {
   path: ReactNode;
 };
 
-const FooterIcon = ({ viewBox, path }: FooterIconProps) => {
+const FooterIcon: React.FC<FooterIconProps> = ({ viewBox, path }) => {
   return (
     <Icon viewBox={viewBox} cursor="pointer" w="48px" h="48px">
       {path}
@@ -20,7 +15,7 @@ const FooterIcon = ({ viewBox, path }: FooterIconProps) => {
   );
 };
 
-const RplIcon = () => {
+const RplIcon: React.FC = () => {
   return (
     <FooterIcon
       viewBox="0 0 1080 1080"
@@ -52,7 +47,7 @@ const RplIcon = () => {
   );
 };
 
-const SteamIcon = () => {
+const SteamIcon: React.FC = () => {
   return (
     <FooterIcon
       viewBox="0 0 32 32"
@@ -66,7 +61,7 @@ const SteamIcon = () => {
   );
 };
 
-const TwitterIcon = () => {
+const TwitterIcon: React.FC = () => {
   return (
     <FooterIcon
       viewBox="0 0 1024 1024"
@@ -80,7 +75,7 @@ const TwitterIcon = () => {
   );
 };
 
-const DiscordIcon = () => {
+const DiscordIcon: React.FC = () => {
   return (
     <FooterIcon
       viewBox="0 0 30 30"
@@ -94,23 +89,23 @@ const DiscordIcon = () => {
   );
 };
 
-export const Footer = () => {
+export const Footer: React.FC = () => {
   return (
     <Box w="100%" h="10vh" bgColor={useColorModeValue("#EEF1F6", "#262B36")}>
-        <Flex alignItems="center" justify="flex-start" flex="1">
-          <Stack direction="row" alignItems="center" spacing="0">
-            <RplIcon />
-            <Text fontSize="8px" marginLeft="5">
-              © 2022 Retake Pro League, Tous droits réservés.
-            </Text>
-          </Stack>
+      <Flex alignItems="center" justify="flex-start" flex="1">
+        <Stack direction="row" alignItems="center" spacing="0">
+          <RplIcon />
+          <Text fontSize="8px" marginLeft="5">
+            © 2022 Retake Pro League, Tous droits réservés.
+          </Text>
+        </Stack>
 
-          <Stack direction="row" alignItems="center" marginLeft="auto">
-            <SteamIcon />
-            <TwitterIcon />
-            <DiscordIcon />
-          </Stack>
-        </Flex>
+        <Stack direction="row" alignItems="center" marginLeft="auto">
+          <SteamIcon />
+          <TwitterIcon />
+          <DiscordIcon />
+        </Stack>
+      </Flex>
     </Box>
   );
 };

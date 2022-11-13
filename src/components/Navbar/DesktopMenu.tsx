@@ -7,7 +7,7 @@ type NavLinkProps = {
   onClick: () => void;
 };
 
-const NavLink = ({ onClick, children }: NavLinkProps) => (
+const NavLink: React.FC<NavLinkProps> = ({ onClick, children }) => (
   <Link
     px={2}
     py={1}

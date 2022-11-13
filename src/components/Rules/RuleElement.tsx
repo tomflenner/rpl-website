@@ -15,7 +15,10 @@ type RuleElementProps = {
   description: string;
 };
 
-export const RuleElement = ({ title, description }: RuleElementProps) => {
+export const RuleElement: React.FC<RuleElementProps> = ({
+  title,
+  description,
+}) => {
   const [show, setShow] = useState(false);
   const handleToggle = () => setShow(!show);
 

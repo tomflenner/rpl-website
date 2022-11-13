@@ -14,7 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { ResponsiveValues } from "../../utils/responsive";
 
-export const TopTenTable = () => {
+export const TopTenTable: React.FC = () => {
   return (
     <TableContainer>
       <Table variant="simple">
@@ -50,7 +50,7 @@ export const TopTenTable = () => {
   );
 };
 
-export const Stats = () => {
+export const Stats: React.FC = () => {
   return (
     <VStack id="stats" marginTop="10" marginBottom="10">
       <Heading color="orange" marginBottom="10">

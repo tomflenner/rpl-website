@@ -5,7 +5,7 @@ import { AppProps } from "next/app";
 import Head from "next/head";
 import { Layout } from "../components/Layout/Layout";
 
-function MyApp({ Component, pageProps }: AppProps) {
+export const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <ChakraProvider theme={theme}>
       <Head>
@@ -16,6 +16,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Layout>
     </ChakraProvider>
   );
-}
+};
 
 export default MyApp;

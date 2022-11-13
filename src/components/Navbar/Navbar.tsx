@@ -13,7 +13,11 @@ export type NavMenuProps = {
   user?: any;
 };
 
-export const Navbar = ({ user }) => {
+export type NavbarProps = {
+  user: any;
+};
+
+export const Navbar: React.FC<NavbarProps> = ({ user }) => {
   const isMobile = useBreakpointValue({ base: true, md: false });
 
   const [isScrolled, setIsScrolled] = useState(false);

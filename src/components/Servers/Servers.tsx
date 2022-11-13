@@ -1,11 +1,5 @@
 import { SpinnerIcon } from "@chakra-ui/icons";
-import {
-  Heading,
-  Icon,
-  Stack,
-  Text,
-  VStack
-} from "@chakra-ui/react";
+import { Heading, Icon, Stack, Text, VStack } from "@chakra-ui/react";
 import { ResponsiveValues } from "../../utils/responsive";
 
 type InfoProps = {
@@ -14,7 +8,7 @@ type InfoProps = {
   description: string;
 };
 
-const Info = ({ icon, title, description }: InfoProps) => {
+const Info: React.FC<InfoProps> = ({ icon, title, description }) => {
   return (
     <VStack h="100%">
       <Icon as={icon} color="orange" boxSize="12" />
@@ -26,7 +20,7 @@ const Info = ({ icon, title, description }: InfoProps) => {
   );
 };
 
-export const ServersInfos = () => {
+export const ServersInfos: React.FC = () => {
   return (
     <Stack
       id="serversInfo"

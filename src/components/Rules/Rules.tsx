@@ -1,7 +1,7 @@
 import { Box, Heading, VStack } from "@chakra-ui/react";
 import { RuleElement } from "./RuleElement";
 
-export const Rules = () => {
+export const Rules: React.FC = () => {
   return (
     <Box textAlign="center" margin="10" id="rules">
       <Heading color="orange">Règles</Heading>

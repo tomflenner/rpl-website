@@ -1,7 +1,7 @@
 import { Center, Image, Stack, Text } from "@chakra-ui/react";
 import { ResponsiveValues } from "../../utils/responsive";
 
-export const Home = () => (
+export const Home: React.FC = () => (
   <Stack
     id="home"
     minH="100vh"
