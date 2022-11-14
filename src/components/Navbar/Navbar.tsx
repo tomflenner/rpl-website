@@ -64,6 +64,7 @@ export const Navbar: React.FC<NavbarProps> = ({ user, ready }) => {
         position="fixed"
         h="16"
         maxH="16"
+        padding="1em"
         alignItems="center"
         justifyContent="space-between"
         zIndex="overlay"
