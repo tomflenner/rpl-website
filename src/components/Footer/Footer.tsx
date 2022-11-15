@@ -1,5 +1,12 @@
 import { Icon } from "@chakra-ui/icons";
-import { Box, Flex, Stack, Text, useColorModeValue } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Link,
+  Stack,
+  Text,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { ReactNode } from "react";
 import { ResponsiveValues } from "../../utils/responsive";
 
@@ -115,9 +122,15 @@ export const Footer: React.FC = () => {
       </Stack>
 
       <Stack direction="row" alignItems="center" marginLeft="auto">
-        <SteamIcon />
-        <TwitterIcon />
-        <DiscordIcon />
+        <Link href="https://steamcommunity.com/groups/-RPL" target="_blank">
+          <SteamIcon />
+        </Link>
+        <Link href="https://twitter.com/retakeproleague" target="_blank">
+          <TwitterIcon />
+        </Link>
+        <Link href="https://discord.gg/RXK3dWvmDx" target="_blank">
+          <DiscordIcon />
+        </Link>
       </Stack>
     </Flex>
   );

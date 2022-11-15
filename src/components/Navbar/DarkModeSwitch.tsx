@@ -10,10 +10,8 @@ export const DarkModeSwitch: React.FC = () => {
       size="sm"
       top={4}
       right={4}
-      icon={isDark ? <SunIcon /> : <MoonIcon />}
+      icon={isDark ? <SunIcon color="orange" /> : <MoonIcon color="grey" />}
       aria-label="Toggle Theme"
-      bgGradient="linear(to-b, yellow, orange)"
-      colorScheme="orange"
       onClick={toggleColorMode}
     />
   );
